@@ -16,6 +16,31 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const lowerABreveButton = document.querySelector('#lower-a-breve')
     lowerABreveButton.addEventListener('click', handleLowerABreveClick);
+
+    const upperACircumflexButton = document.querySelector('#upper-a-circumflex')
+    upperACircumflexButton.addEventListener('click', handleUpperACircumflexClick);
+
+    const lowerACircumflexButton = document.querySelector('#lower-a-circumflex')
+    lowerACircumflexButton.addEventListener('click', handleLowerACircumflexClick);
+
+    const upperICircumflexButton = document.querySelector('#upper-i-circumflex')
+    upperICircumflexButton.addEventListener('click', handleUpperICircumflexClick);
+
+    const lowerICircumflexButton = document.querySelector('#lower-i-circumflex')
+    lowerICircumflexButton.addEventListener('click', handleLowerICircumflexClick);
+
+    const upperSCommaButton = document.querySelector('#upper-s-comma')
+    upperSCommaButton.addEventListener('click', handleUpperSCommaClick);
+
+    const lowerSCommaButton = document.querySelector('#lower-s-comma')
+    lowerSCommaButton.addEventListener('click', handleLowerSCommaClick);
+
+    const upperTCommaButton = document.querySelector('#upper-t-comma')
+    upperTCommaButton.addEventListener('click', handleUpperTCommaClick);
+
+    const lowerTCommaButton = document.querySelector('#lower-t-comma')
+    lowerTCommaButton.addEventListener('click', handleLowerTCommaClick);
+
 });
 
 // Handling
@@ -38,23 +63,56 @@ const handleDeleteAllNounsClick = function (event) {
 
 // Letter Buttons
 const handleUpperABreveClick = function (event) {
-    romanianInputBox = document.querySelector('#romanian');
-    romanian.value = `${romanian.value}Ă`;
+    typeCharacter("Ă");
 }
 
 const handleLowerABreveClick = function (event) {
-    romanianInputBox = document.querySelector('#romanian');
-    romanian.value = `${romanian.value}ă`;
+    typeCharacter("ă");
+}
+
+const handleUpperACircumflexClick = function (event) {
+    typeCharacter("Â");
+}
+
+const handleLowerACircumflexClick = function (event) {
+    typeCharacter("â");
+}
+
+const handleUpperICircumflexClick = function (event) {
+    typeCharacter("Î");
+}
+
+const handleLowerICircumflexClick = function (event) {
+    typeCharacter("î");
+}
+
+const handleUpperSCommaClick = function (event) {
+    typeCharacter("Ș");
+}
+
+const handleLowerSCommaClick = function (event) {
+    typeCharacter("ș");
+}
+
+const handleUpperTCommaClick = function (event) {
+    typeCharacter("Ț");
+}
+
+const handleLowerTCommaClick = function (event) {
+    typeCharacter("ț");
 }
 
 // Helper Functions
 const createNounListElement = function (form) {
     const nounListItem = document.createElement('li');
+    const nounTextArea = document.querySelector('#noun-textarea');
+
 
     const nounLine = document.createElement('p');
     nounLine.textContent = `${form.english.value}${form.delimiter.value}${form.romanian.value}`
-
     nounListItem.appendChild(nounLine);
+    nounTextArea.value = `${nounTextArea.value}${nounLine.textContent}\n`
+
 
     return nounListItem
 };
@@ -65,5 +123,6 @@ const clearFields = function (form) {
 };
 
 const typeCharacter = function(character) {
-    
+    romanian.value = `${romanian.value}${character}`;
+    romanian.focus();
 };
