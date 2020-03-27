@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const newNounForm = document.querySelector('#noun-input-form');
     newNounForm.addEventListener('submit', handleNewNounFormSubmit);
 
+    const deleteAllNounsButton = document.querySelector('#delete-all-nouns')
+    deleteAllNounsButton.addEventListener('click', handleDeleteAllNounsClick);
+
 });
 
 // Handling
@@ -17,6 +20,11 @@ const handleNewNounFormSubmit = function (event) {
 
     clearFields(event.target);
 };
+
+const handleDeleteAllNounsClick = function (event) {
+    const nounList = document.querySelector('#noun-list');
+    nounList.innerHTML = '';
+  }
 
 // Helper Functions
 const createNounListElement = function (form) {
@@ -33,5 +41,4 @@ const createNounListElement = function (form) {
 const clearFields = function (form) {
     document.querySelector('#english').value = "";
     document.querySelector('#romanian').value = "";
-
 }
