@@ -7,14 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
     newNounForm.addEventListener('submit', handleNewNounFormSubmit);
 
     // Listen for Delete All Nouns Button Click
-    const deleteAllNounsButton = document.querySelector('#delete-all-nouns')
+    const deleteAllNounsButton = document.querySelector('#delete-all-nouns');
     deleteAllNounsButton.addEventListener('click', handleDeleteAllNounsClick);
 
+    const selectTextAreaButton = document.querySelector('#select-textarea');
+    selectTextAreaButton.addEventListener('click', handleSelectTextAreaClick);
+
     // Listen for Letter Button Clicks
-    const upperABreveButton = document.querySelector('#upper-a-breve')
+    const upperABreveButton = document.querySelector('#upper-a-breve');
     upperABreveButton.addEventListener('click', handleUpperABreveClick);
     
-    const lowerABreveButton = document.querySelector('#lower-a-breve')
+    const lowerABreveButton = document.querySelector('#lower-a-breve');
     lowerABreveButton.addEventListener('click', handleLowerABreveClick);
 
     const upperACircumflexButton = document.querySelector('#upper-a-circumflex')
@@ -100,6 +103,11 @@ const handleUpperTCommaClick = function (event) {
 
 const handleLowerTCommaClick = function (event) {
     typeCharacter("ț");
+}
+
+const handleSelectTextAreaClick = function (event) {
+    const nounTextArea = document.querySelector('#noun-textarea');
+    nounTextArea.select();
 }
 
 // Helper Functions

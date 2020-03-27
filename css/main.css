@@ -1,8 +1,19 @@
 body {
-    background-color: aliceblue;
+    background-color: #FCD116;
 }
 
 ul {
     list-style-type: none;
     margin: 0px;
+}
+
+.flex-container {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 228, 107);
+}
+
+.flex-container > div {
+    padding: 10px;
 }

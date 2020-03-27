@@ -8,57 +8,69 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Romanian Input Form</title>
 </head>
+<nav>
+    <a href="https://quizlet.com/latest">Quizlet</a>
+    <a href="https://dexonline.ro/">DexOnline</a>
+    <a href="https://www.duolingo.com/learn">Duolingo</a>
+</nav>
 <body>
     
     <h1 id="page-title">Romanian Input Form</h1>
 
-    <form id="noun-input-form">
 
-        <fieldset>
-            <legend>Enter a Noun</legend>
+<div class="flex-container">
+    <div id="noun-input-form-wrapper">
+        <form id="noun-input-form">
+            <fieldset>
+                <legend>Enter a Noun</legend>
 
-            <p>Enter an English noun, without any article in the singular.</p>
-            <p>e.g. apple</p>
-            <label for="english-noun">English:</label>
-            <input type="text" id="english" autocomplete="off">
-    
-            <p>Enter the Romanian noun, with the indefinite article in the singular and the plural.</p>
-            <p>e.g. un măr, două mere</p>
-            <label for="romanian-noun">Romanian:</label>
-            <input type="text" id="romanian" autocomplete="off">
-            <br>
+                <p>Enter an English noun, without any article in the singular, e.g. "apple".</p>
+                <label for="english-noun">English:</label>
+                <input type="text" id="english" autocomplete="off">
+        
+                <p>Enter the Romanian noun, with the indefinite article in the singular and the plural, e.g. "un măr, două mere".</p>
+                <label for="romanian-noun">Romanian:</label>
+                <input type="text" id="romanian" autocomplete="off">
+                <br>
 
-            <button type="button" id="upper-a-breve">Ă</button>
-            <button type="button" id="upper-a-circumflex">Â</button>
-            <button type="button" id="upper-i-circumflex">Î</button>
-            <button type="button" id="upper-s-comma">Ș</button>
-            <button type="button" id="upper-t-comma">Ț</button>
-            <br>
+                <button type="button" id="upper-a-breve">Ă</button>
+                <button type="button" id="upper-a-circumflex">Â</button>
+                <button type="button" id="upper-i-circumflex">Î</button>
+                <button type="button" id="upper-s-comma">Ș</button>
+                <button type="button" id="upper-t-comma">Ț</button>
+                <br>
 
-            <button type="button" id="lower-a-breve">ă</button>
-            <button type="button" id="lower-a-circumflex">â</button>
-            <button type="button" id="lower-i-circumflex">î</button>
-            <button type="button" id="lower-s-comma">ș</button>
-            <button type="button" id="lower-t-comma">ț</button>
+                <button type="button" id="lower-a-breve">ă</button>
+                <button type="button" id="lower-a-circumflex">â</button>
+                <button type="button" id="lower-i-circumflex">î</button>
+                <button type="button" id="lower-s-comma">ș</button>
+                <button type="button" id="lower-t-comma">ț</button>
 
-            <p>Enter a delimiter</p>
-            <p>e.g. - will return apple-un măr, două mere</p>
-            <label for="delimiter">Delimiter:</label>
-            <input type="text" id="delimiter" autocomplete="off">
-            <br>
-    
-            <button type="submit" id="submit-noun">Submit Noun</button>
+                <p>Enter a delimiter, e.g. "-" or "," or ";" etc.</p>
+                <label for="delimiter">Delimiter:</label>
+                <input type="text" id="delimiter" autocomplete="off">
+                <br>
+        
+                <button type="submit" id="submit-noun">Submit Noun</button>
 
-        </fieldset>
+            </fieldset>
+        </form>
+    </div>
 
-    </form>
-    <br>
+    <div id="#noun-list-textarea-wrapper">
+        <textarea name="noun-textarea" id="noun-textarea" cols="50" rows="25"></textarea>
+        <br>
+        <input type="button" value="Select All" id="select-textarea">
+        <input type="button" value="Clear">
+    </div>
 
-    <textarea name="noun-textarea" id="noun-textarea" cols="50" rows="10"></textarea>
+    </div>
 
-    <h2 id="noun-list-title">Nouns</h2>
-    <input type="submit" value="Delete All Nouns" id="delete-all-nouns">
-    <ul id="noun-list"></ul>
+    <div id="noun-list-wrapper">
+        <h2 id="noun-list-title">Nouns</h2>
+        <input type="submit" value="Delete All Nouns" id="delete-all-nouns">
+        <ul id="noun-list"></ul>
+    </div>
 
 </body>
 </html>
