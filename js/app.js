@@ -15,7 +15,7 @@ const handleNewNounFormSubmit = function (event) {
     const nounList = document.querySelector('#noun-list');
     nounList.appendChild(nounListElement);
 
-    event.target.reset();
+    clearFields(event.target);
 };
 
 // Helper Functions
@@ -23,13 +23,15 @@ const createNounListElement = function (form) {
     const nounListItem = document.createElement('li');
 
     const nounLine = document.createElement('p');
-    nounLine.textContent = `${form.english.value}:::${form.romanian.value}`
+    nounLine.textContent = `${form.english.value}${form.delimiter.value}${form.romanian.value}`
 
     nounListItem.appendChild(nounLine);
 
     return nounListItem
 }
 
+const clearFields = function (form) {
+    document.querySelector('#english').value = "";
+    document.querySelector('#romanian').value = "";
 
-
-
+}
