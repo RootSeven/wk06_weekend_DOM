@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const newNounForm = document.querySelector('#noun-input-form');
     newNounForm.addEventListener('submit', handleNewNounFormSubmit);
 
+    // Listen for Clear Button Click
+    const clearButton = document.querySelector('#clear-textarea');
+    clearButton.addEventListener('click', handleClearButtonClick);
+
     // Listen for Delete All Nouns Button Click
     const deleteAllNounsButton = document.querySelector('#delete-all-nouns');
     deleteAllNounsButton.addEventListener('click', handleDeleteAllNounsClick);
@@ -59,10 +63,13 @@ const handleNewNounFormSubmit = function (event) {
 };
 
 const handleDeleteAllNounsClick = function (event) {
-    console.log("delete click!");
     const nounList = document.querySelector('#noun-list');
     nounList.innerHTML = '';
   }
+
+  const handleClearButtonClick = function (event) {
+        document.querySelector('#noun-textarea').value = "";
+    };
 
 // Letter Buttons
 const handleUpperABreveClick = function (event) {
