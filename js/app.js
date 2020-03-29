@@ -63,9 +63,9 @@ const handleDeleteAllNounsClick = function () {
     nounList.innerHTML = '';
   }
 
-  const handleClearButtonClick = function () {
-        document.querySelector('#noun-textarea').value = "";
-    };
+const handleClearButtonClick = function () {
+    document.querySelector('#noun-textarea').value = "";
+};
 
 // Letter Buttons
 const handleUpperABreveClick = function () {
@@ -108,7 +108,7 @@ const handleLowerTCommaClick = function () {
     typeCharacter("ț", 'noun-input-form', 'romanian');
 }
 
-const handleSelectTextAreaClick = function (event) {
+const handleSelectTextAreaClick = function () {
     const nounTextArea = document.querySelector('#noun-textarea');
     nounTextArea.select();
 }
@@ -116,14 +116,13 @@ const handleSelectTextAreaClick = function (event) {
 // Helper Functions
 const createNounListElement = function (form) {
     const nounListItem = document.createElement('li');
+    const nounLine = document.createElement('p');
+
     const nounTextArea = document.querySelector('#noun-textarea');
 
-
-    const nounLine = document.createElement('p');
     nounLine.textContent = `${form.english.value}${form.delimiter.value}${form.romanian.value}`
     nounListItem.appendChild(nounLine);
     nounTextArea.value = `${nounTextArea.value}${nounLine.textContent}\n`
-
 
     return nounListItem
 };
@@ -137,6 +136,5 @@ const clearFields = function (form, clearThese) {
 const typeCharacter = function(character, formName, fieldName) {
     form = document.querySelector(`#${formName}`);
     field = form.querySelector(`#${fieldName}`);
-
     field.value = `${field.value}${character}`;
 };

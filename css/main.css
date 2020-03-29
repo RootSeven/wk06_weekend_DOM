@@ -1,6 +1,7 @@
 body {
     background-color: aliceblue;
     color: navy;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav {
@@ -8,6 +9,14 @@ nav {
     justify-content: space-around;
     background-color:rgb(177, 219, 255);
     padding: 10px;
+}
+
+button {
+    font-size: large;
+}
+
+input {
+    font-size: large;
 }
 
 a {
