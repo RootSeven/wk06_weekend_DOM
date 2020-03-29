@@ -53,7 +53,7 @@ const handleNewNounFormSubmit = function (event) {
     const nounListElement = createNounListElement(this);
     const nounList = document.querySelector('#noun-list');
     nounList.appendChild(nounListElement);
-    
+
     clearFields(this, ['english', 'romanian']);
     this.english.focus();
 };
@@ -63,49 +63,59 @@ const handleDeleteAllNounsClick = function () {
     nounList.innerHTML = '';
   }
 
-  const handleClearButtonClick = function (event) {
+  const handleClearButtonClick = function () {
         document.querySelector('#noun-textarea').value = "";
     };
 
 // Letter Buttons
-const handleUpperABreveClick = function (event) {
-    typeCharacter("Ă");
+const handleUpperABreveClick = function () {
+    thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("Ă", thisForm, 'romanian');
 }
 
-const handleLowerABreveClick = function (event) {
-    typeCharacter("ă");
+const handleLowerABreveClick = function () {
+    thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("ă", thisForm, 'romanian');
 }
 
-const handleUpperACircumflexClick = function (event) {
-    typeCharacter("Â");
+const handleUpperACircumflexClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("Â", thisForm, 'romanian');
 }
 
-const handleLowerACircumflexClick = function (event) {
-    typeCharacter("â");
+const handleLowerACircumflexClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("â", thisForm, 'romanian');
 }
 
-const handleUpperICircumflexClick = function (event) {
-    typeCharacter("Î");
+const handleUpperICircumflexClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("Î", thisForm, 'romanian');
 }
 
-const handleLowerICircumflexClick = function (event) {
-    typeCharacter("î");
+const handleLowerICircumflexClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("î", thisForm, 'romanian');
 }
 
-const handleUpperSCommaClick = function (event) {
-    typeCharacter("Ș");
+const handleUpperSCommaClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("Ș", thisForm, 'romanian');
 }
 
-const handleLowerSCommaClick = function (event) {
-    typeCharacter("ș");
+const handleLowerSCommaClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("ș", thisForm, 'romanian');
 }
 
-const handleUpperTCommaClick = function (event) {
-    typeCharacter("Ț");
+const handleUpperTCommaClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("Ț", thisForm, 'romanian');
 }
 
-const handleLowerTCommaClick = function (event) {
-    typeCharacter("ț");
+const handleLowerTCommaClick = function () {
+    let thisForm = document.querySelector('#noun-input-form');
+    typeCharacter("ț", thisForm, 'romanian');
 }
 
 const handleSelectTextAreaClick = function (event) {
@@ -134,7 +144,8 @@ const clearFields = function (form, clearThese) {
     })
 };
 
-const typeCharacter = function(character) {
-    romanian.value = `${romanian.value}${character}`;
-    romanian.focus();
+const typeCharacter = function(character, form, field) {
+    formField = form.querySelector(`#${field}`)
+    formField.value = `${formField.value}${character}`;
+    formField.focus();
 };
