@@ -50,14 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const handleNewNounFormSubmit = function (event) {
     event.preventDefault();
-
     const nounListElement = createNounListElement(this);
-    
     const nounList = document.querySelector('#noun-list');
-
     nounList.appendChild(nounListElement);
-
-    clearFields(this);
+    
+    clearFields(this, ['english', 'romanian']);
     this.english.focus();
 };
 
@@ -131,9 +128,10 @@ const createNounListElement = function (form) {
     return nounListItem
 };
 
-const clearFields = function (form) {
-    form.querySelector('#english').value = "";
-    form.querySelector('#romanian').value = "";
+const clearFields = function (form, clearThese) {
+    clearThese.forEach ( field => {
+        form.querySelector(`#${field}`).value = "";
+    })
 };
 
 const typeCharacter = function(character) {
