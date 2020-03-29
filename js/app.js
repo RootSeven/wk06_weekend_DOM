@@ -60,6 +60,7 @@ const handleNewNounFormSubmit = function (event) {
     nounList.appendChild(nounListElement);
 
     clearFields(event.target);
+    english.focus();
 };
 
 const handleDeleteAllNounsClick = function (event) {

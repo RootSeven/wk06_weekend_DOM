@@ -6,6 +6,12 @@ body {
 nav {
     display: flex;
     justify-content: space-around;
+    background-color:rgb(177, 219, 255);
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
 }
 
 ul {
