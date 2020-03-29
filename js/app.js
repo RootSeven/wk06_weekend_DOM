@@ -2,22 +2,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Listen for Noun Submit Button Click
     const newNounForm = document.querySelector('#noun-input-form');
     newNounForm.addEventListener('submit', handleNewNounFormSubmit);
 
-    // Listen for Clear Button Click
     const clearButton = document.querySelector('#clear-textarea');
     clearButton.addEventListener('click', handleClearButtonClick);
 
-    // Listen for Delete All Nouns Button Click
     const deleteAllNounsButton = document.querySelector('#delete-all-nouns');
     deleteAllNounsButton.addEventListener('click', handleDeleteAllNounsClick);
 
     const selectTextAreaButton = document.querySelector('#select-textarea');
     selectTextAreaButton.addEventListener('click', handleSelectTextAreaClick);
 
-    // Listen for Letter Button Clicks
     const upperABreveButton = document.querySelector('#upper-a-breve');
     upperABreveButton.addEventListener('click', handleUpperABreveClick);
     
@@ -55,15 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
 const handleNewNounFormSubmit = function (event) {
     event.preventDefault();
 
-    const nounListElement = createNounListElement(event.target);
+    const nounListElement = createNounListElement(this);
+    
     const nounList = document.querySelector('#noun-list');
+
     nounList.appendChild(nounListElement);
 
-    clearFields(event.target);
-    english.focus();
+    clearFields(this);
+    this.english.focus();
 };
 
-const handleDeleteAllNounsClick = function (event) {
+const handleDeleteAllNounsClick = function () {
     const nounList = document.querySelector('#noun-list');
     nounList.innerHTML = '';
   }
@@ -134,8 +132,8 @@ const createNounListElement = function (form) {
 };
 
 const clearFields = function (form) {
-    document.querySelector('#english').value = "";
-    document.querySelector('#romanian').value = "";
+    form.querySelector('#english').value = "";
+    form.querySelector('#romanian').value = "";
 };
 
 const typeCharacter = function(character) {
