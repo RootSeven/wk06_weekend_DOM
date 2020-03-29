@@ -55,7 +55,7 @@ const handleNewNounFormSubmit = function (event) {
     nounList.appendChild(nounListElement);
 
     clearFields(this, ['english', 'romanian']);
-    this.english.focus();
+    this.english_noun_field.focus();
 };
 
 const handleDeleteAllNounsClick = function () {
@@ -120,7 +120,7 @@ const createNounListElement = function (form) {
 
     const nounTextArea = document.querySelector('#noun-textarea');
 
-    nounLine.textContent = `${form.english.value}${form.delimiter.value}${form.romanian.value}`
+    nounLine.textContent = `${form.english_noun_field.value}${form.delimiter.value}${form.romanian_noun_field.value}`
     nounListItem.appendChild(nounLine);
     nounTextArea.value = `${nounTextArea.value}${nounLine.textContent}\n`
 
@@ -129,12 +129,12 @@ const createNounListElement = function (form) {
 
 const clearFields = function (form, clearThese) {
     clearThese.forEach ( field => {
-        form.querySelector(`#${field}`).value = "";
+        form.querySelector(`.${field}`).value = "";
     })
 };
 
-const typeCharacter = function(character, formName, fieldName) {
+const typeCharacter = function(character, formName, fieldClass) {
     form = document.querySelector(`#${formName}`);
-    field = form.querySelector(`#${fieldName}`);
+    field = form.querySelector(`.${fieldClass}`);
     field.value = `${field.value}${character}`;
 };
